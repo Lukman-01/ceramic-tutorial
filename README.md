@@ -1,38 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ceramic Tutorial Project
+
+Welcome to the Ceramic Tutorial project! This tutorial will guide you through building a decentralized web application using Ceramic, a decentralized data network. By the end of this tutorial, you'll have a working web application that allows users to create and update their profiles on the Ceramic Network.
+## Project Overview
+
+The Ceramic Tutorial project is built using Next.js, a React framework for web applications. It guides you through creating a web application that connects users to their Ethereum wallets using Web3Modal and allows them to create and update their profiles on the Ceramic Network. Key features and components of the project include:
+
+- **Connection to Ceramic Network**: Users can connect their Ethereum wallets to Ceramic using Web3Modal.
+
+- **Profile Data Management**: The application uses Ceramic Streams to create and update user profiles, including profile names.
+
+- **User-Friendly UI**: The user interface is designed for clarity and ease of use, with a navigation bar, profile display, and input fields for updating data.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run the Ceramic Tutorial project on your local machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before you begin, ensure you have the following installed:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Node.js: [Download and install Node.js](https://nodejs.org/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone the repository to your local machine:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone <repository-url>
+   ```
 
-## Learn More
+2. Navigate to the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cd ceramic-tutorial
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install project dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+4. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to access the Ceramic Tutorial application.
+
+## Project Structure
+
+The project is organized as follows:
+
+- **`pages`**: Contains Next.js pages and routes.
+  - **`_app.js`**: The entry point of the application, used to wrap components with global providers.
+
+- **`styles`**: Stores CSS styles used in the application.
+
+- **`components`**: You can create this folder to organize React components. It contains the `RecordSetter` component.
+
+- **`lib`**: This folder can be used to store utility functions or configuration files if needed.
+
+## Connecting to Ceramic Network
+
+### Web3Modal
+
+Web3Modal simplifies the process of connecting users to their Ethereum wallets. It is initialized to connect to the Goerli Ethereum testnet, enabling users to connect to the Ceramic Network on the testnet.
+
+### Self.ID
+
+Self.ID is a high-level library provided by Ceramic, used to manage connections to the Ceramic Network. The `useViewerConnection` hook from Self.ID handles Ceramic connections.
+
+### EthereumAuthProvider
+
+The `EthereumAuthProvider` class from Self.ID connects the user's Ethereum wallet to their 3ID. It allows for signing transactions and interacting with the wallet.
+
+## Creating and Updating Ceramic Profile Data
+
+### RecordSetter Component
+
+The `RecordSetter` component manages user profile data on the Ceramic Network. It uses Ceramic Streams to store and retrieve data, specifically the user's profile name. Users can input their name and click the "Update" button to update their profile.
+
+## User Interface
+
+The user interface (UI) is designed for user-friendliness. Key UI elements include:
+
+- Navigation bar displaying the project title and user connection status.
+- "Connect" button for connecting Ethereum wallets.
+- Section displaying user information, including profile names.
+- Input fields for updating profile data.
+- "Update" button for updating profile data.
+
+## Next Steps
+
+This tutorial provides a foundation for building applications on the Ceramic Network. You can extend the project by adding more features and exploring other use cases enabled by Ceramic, such as decentralized social graphs, reputation systems, and more. Additionally, you can enhance the UI and user experience to create a polished and functional application.
+
+Remember that Ceramic is a powerful protocol for managing decentralized data, and Self.ID simplifies the development process. You can leverage these tools to build innovative Web3 applications that offer data interoperability and security.
+
+Enjoy exploring Ceramic and building decentralized applications!
